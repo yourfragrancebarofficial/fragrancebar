@@ -258,6 +258,9 @@ body {
   border-radius: 20px;
   font-weight: 600;
 }
+
+
+
 /* HOW SECTION */
 .how {
   padding: 100px 40px;
@@ -521,4 +524,70 @@ footer {
   animation: highlightPulse 1.5s ease-in-out 2; /* Pulses twice */
   border: 2px solid #fff; /* Makes it stand out even more */
 }
+}
+/* Keep all your existing styles here */
+
+/* Add these necessary styles for the new elements */
+
+.scent-notes {
+  margin: 15px 0;
+  padding-left: 12px;
+  border-left: 2px solid #ffcc00; /* Gold accent */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scent-notes span {
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+.price-tag {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Review Section Styling */
+.reviews {
+  padding: 80px 5%;
+  background: #080808; /* Slightly different shade for sectioning */
+  text-align: center;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: #111;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  text-align: left;
+}
+
+.stars {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+.reviewer {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ffcc00;
+  font-size: 0.8rem;
 }
