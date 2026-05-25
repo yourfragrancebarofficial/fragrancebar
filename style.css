@@ -13,7 +13,6 @@
   --text-main: #fcfcfc;
   --text-muted: #888888;
   
-  /* Cinematic easing for buttery-smooth animations */
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -39,7 +38,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 18px 40px;
+  padding: 20px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +52,7 @@ body {
 
 .logo {
   font-weight: 800;
-  font-size: 60px;
+  font-size: 2.5rem;
   letter-spacing: -1px;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
@@ -98,7 +97,7 @@ body {
    ========================================= */
 .hero {
   min-height: 100vh;
-  padding: 150px 40px 100px;
+  padding: 180px 5% 100px;
   background: radial-gradient(circle at 50% 30%, rgba(30, 25, 10, 0.4) 0%, var(--bg-deep) 70%);
   display: flex;
   flex-direction: column;
@@ -121,7 +120,7 @@ body {
 
 .hero h1 {
   margin-top: 24px;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1.5px;
@@ -134,7 +133,7 @@ body {
 }
 
 .hero p {
-  max-width: 550px;
+  max-width: 600px;
   color: var(--text-muted);
   margin-top: 20px;
   font-size: 1.125rem;
@@ -232,34 +231,38 @@ body {
 }
 
 /* =========================================
-   PRODUCTS SECTION
+   SHARED LAYOUT CONTAINERS
    ========================================= */
-.products {
-  padding: 120px 40px;
-  text-align: center;
-  background: var(--bg-surface);
+.section-wrapper {
+  padding: 120px 5%;
 }
 
-.products h2 {
+.grid-container {
+  display: grid;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+.section-title {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 15px;
   font-weight: 700;
   letter-spacing: -1px;
+  text-align: center;
 }
 
 .sub {
   color: var(--text-muted);
   font-size: 1.1rem;
+  text-align: center;
 }
 
-.product-grid {
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+/* =========================================
+   PRODUCTS SECTION
+   ========================================= */
+.products {
+  background: var(--bg-surface);
 }
 
 .card {
@@ -270,7 +273,8 @@ body {
   border-radius: 20px;
   transition: all 0.6s var(--ease-cinematic);
   position: relative;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -289,6 +293,7 @@ body {
   color: var(--text-muted);
   margin-bottom: 15px;
   line-height: 1.5;
+  flex-grow: 1; /* Pushes button to bottom evenly */
 }
 
 .price-tag {
@@ -299,7 +304,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Scent Notes */
 .scent-notes {
   margin: 20px 0;
   padding: 15px;
@@ -324,9 +328,10 @@ body {
   border-radius: 30px;
   text-decoration: none;
   display: inline-block;
+  text-align: center;
   transition: all 0.4s var(--ease-cinematic);
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: auto; /* Aligns to bottom */
 }
 
 .card a:hover {
@@ -358,29 +363,20 @@ body {
    HOW IT WORKS (Cinematic Steps)
    ========================================= */
 .how {
-  padding: 120px 40px;
-  text-align: center;
-  background: #000; /* Deepest black for contrast */
-}
-
-.how h2 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  margin-bottom: 60px;
-  color: #fff;
-  letter-spacing: -1px;
+  background: #000;
 }
 
 .steps {
   display: flex;
   justify-content: center;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 0;
 }
 
 .step {
   position: relative;
-  width: 320px;
-  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -395,7 +391,6 @@ body {
   z-index: 1;
 }
 
-/* Cinematic Gradient Overlay */
 .step::before {
   content: "";
   position: absolute;
@@ -420,44 +415,21 @@ body {
 }
 
 .step:hover {
-  transform: translateY(-15px);
+  transform: translateY(-10px);
   color: var(--gold-solid);
   -webkit-text-stroke: 0;
   box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
-/* Background Images */
-.step-1 {
-  background: url('open.png') center/cover no-repeat;
-}
-.step-2 {
-  background: url('swipe.png') center/cover no-repeat;
-}
-.step-3 {
-  background: url('apply.png') center/cover no-repeat;
-}
+.step-1 { background: url('open.png') center/cover no-repeat; }
+.step-2 { background: url('swipe.png') center/cover no-repeat; }
+.step-3 { background: url('apply.png') center/cover no-repeat; }
 
 /* =========================================
    COMPARE SECTION
    ========================================= */
 .compare {
-  padding: 120px 40px;
   background: var(--bg-surface);
-}
-
-.compare h2 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  text-align: center;
-  margin-bottom: 60px;
-  letter-spacing: -1px;
-}
-
-.compare-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .box {
@@ -503,7 +475,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Good vs Bad styling */
 .good {
   border-top: 4px solid #34d366;
   background: linear-gradient(180deg, rgba(52, 211, 102, 0.03) 0%, transparent 100%);
@@ -528,19 +499,7 @@ body {
    REVIEWS SECTION
    ========================================= */
 .reviews {
-  padding: 120px 5%;
   background: var(--bg-deep);
-  text-align: center;
-}
-
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .review-card {
@@ -595,7 +554,7 @@ body {
    CTA SECTION
    ========================================= */
 .cta {
-  padding: 150px 40px;
+  padding: 150px 5%;
   text-align: center;
   background: linear-gradient(180deg, var(--bg-surface) 0%, #000 100%);
   position: relative;
@@ -620,12 +579,6 @@ body {
   z-index: 1;
 }
 
-.cta h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-}
-
 .cta p {
   font-size: 1.25rem;
   color: var(--text-muted);
@@ -633,11 +586,6 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.big {
-  font-size: 1.1rem;
-  padding: 18px 45px;
 }
 
 /* =========================================
@@ -656,16 +604,8 @@ footer {
    ANIMATIONS
    ========================================= */
 @keyframes cinematicReveal {
-  0% { 
-    opacity: 0; 
-    transform: translateY(40px) scale(0.98); 
-    filter: blur(10px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0) scale(1); 
-    filter: blur(0); 
-  }
+  0% { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
 @keyframes highlightPulse {
@@ -680,41 +620,69 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE LOGIC (The Core Fix)
    ========================================= */
-@media (max-width: 768px) {
-  .nav {
-    padding: 15px 25px;
-    background: rgba(3, 3, 3, 0.85);
-  }
 
-  .nav nav {
-    display: none;
-  }
+/* 1. MOBILE (Default base, up to 767px) */
+.grid-container {
+  grid-template-columns: 1fr;
+}
+.step {
+  width: 100%;
+  height: 350px;
+}
+.nav nav {
+  display: none; /* Hide standard nav links on mobile */
+}
 
-  .hero {
-    padding: 120px 20px 80px;
+/* 2. TABLET (768px to 1024px) */
+@media (min-width: 768px) {
+  .section-wrapper, .hero, .cta {
+    padding-left: 40px;
+    padding-right: 40px;
   }
-
-  .products, .how, .compare, .cta, .reviews {
-    padding: 80px 20px;
+  
+  /* Show nav links on tablet and desktop */
+  .nav nav { display: flex; }
+  .logo { font-size: 2rem; }
+  
+  /* 2-column grids for tablet */
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .steps {
-    gap: 30px;
-  }
-
+  
+  /* Steps specific logic for 3 items on tablet (2 top, 1 centered bottom) */
   .step {
-    width: 100%;
-    height: 350px;
+    width: calc(50% - 15px);
+    height: 400px;
+  }
+}
+
+/* 3. DESKTOP (1024px and up) */
+@media (min-width: 1024px) {
+  .section-wrapper {
+    padding: 140px 5%;
   }
 
-  .contact-options {
-    flex-direction: column;
-    align-items: stretch;
+  /* 3-column grids for desktop (Products, Reviews) */
+  .products .grid-container, 
+  .reviews .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* 2-columns for Compare */
+  .compare .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
   }
 
-  .contact-btn {
-    justify-content: center;
+  /* Perfect 3-across layout for the Steps */
+  .step {
+    width: calc(33.333% - 20px);
+    height: 450px;
   }
+  
+  /* Nav spacing */
+  .nav { padding: 20px 5%; }
+  .logo { font-size: 2.5rem; }
 }
